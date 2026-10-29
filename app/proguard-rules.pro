@@ -1,0 +1,2 @@
+-keep class com.github.bhlangonijr.** { *; }
+-keep class com.caverock.androidsvg.** { *; }

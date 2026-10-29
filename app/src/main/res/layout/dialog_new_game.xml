@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 根布局不用 ScrollView：滑杆在滚动容器内会触发自动滚屏抖动（RadioButton"弹跳"bug 根源） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对局模式"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <RadioGroup
+            android:id="@+id/rgMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbModeHumanEngine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="人机对弈"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/rbModeEngineEngine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="引擎对引擎"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/rbModeHumanHuman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="双人"
+                android:textSize="13sp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/sideRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="我的执子（人机模式）"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <RadioGroup
+                android:id="@+id/rgSide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbSideRandom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="随机"
+                    android:textSize="13sp" />
+
+                <RadioButton
+                    android:id="@+id/rbSideWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="执白"
+                    android:textSize="13sp" />
+
+                <RadioButton
+                    android:id="@+id/rbSideBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="执黑"
+                    android:textSize="13sp" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLevelLabel"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="引擎等级：10（俱乐部）"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <SeekBar
+            android:id="@+id/seekLevel"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:max="20"
+            android:progress="10" />
+
+        <Button
+            android:id="@+id/btnStartGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="开始对局" />
+</LinearLayout>

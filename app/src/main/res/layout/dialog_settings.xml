@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 外层 ScrollView：内容长（主题竖排 5 项+步进器）小屏可滚（弹窗内无滑杆，无自动滚屏抖动风险） -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="棋子风格"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <RadioGroup
+        android:id="@+id/rgPieceSet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbSetCb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="经典"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rbSetMerida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Merida"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rbSetAlpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alpha"
+            android:textSize="13sp" />
+    </RadioGroup>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swCoords"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示坐标"
+        android:textSize="13sp" />
+
+    <!-- ── 悬浮窗样式 ── -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="悬浮窗样式"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <RadioGroup
+        android:id="@+id/rgFloatStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbStyleClassic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="经典面板"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rbStylePengfei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="鹏飞·横条"
+            android:textSize="13sp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="切换样式立即生效（悬浮窗自动重建）"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp" />
+
+    <!-- ── 界面主题（竖排两列，避免横排超出弹窗）── -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="识别模型（v1.10 极速小模型为鳕鱼皮肤专用，速度约 10 倍）"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <RadioGroup
+        android:id="@+id/rgModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbModelTiny"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="极速小模型（默认）"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rbModelYolo"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="10dp"
+            android:text="精准大模型"
+            android:textSize="13sp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="界面主题"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <RadioGroup
+        android:id="@+id/rgTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rbThemeDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="深色（默认）"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rbThemeWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="白色"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rbThemeBlueWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="蓝白"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rbThemeBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="蓝色"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rbThemePink"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="粉色"
+            android:textSize="13sp" />
+    </RadioGroup>
+
+    <!-- ── 引擎（连线自动下棋用）：步进器 ── -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="引擎（连线自动下棋用）"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <!-- 深度：[−] 12 [+] -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="搜索深度"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnDepthMinus"
+            android:layout_width="42dp"
+            android:layout_height="36dp"
+            android:text="−"
+            android:textSize="18sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp" />
+
+        <TextView
+            android:id="@+id/tvDepthValue"
+            android:layout_width="64dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:background="@drawable/bg_step_value"
+            android:text="12"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnDepthPlus"
+            android:layout_width="42dp"
+            android:layout_height="36dp"
+            android:text="+"
+            android:textSize="18sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- 时间：[−] 不限 [+]（秒，支持 0.1 步进与手输小数） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="思考时限（秒）"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnTimeMinus"
+            android:layout_width="42dp"
+            android:layout_height="36dp"
+            android:text="−"
+            android:textSize="18sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp" />
+
+        <TextView
+            android:id="@+id/tvTimeValue"
+            android:layout_width="64dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:background="@drawable/bg_step_value"
+            android:text="不限"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnTimePlus"
+            android:layout_width="42dp"
+            android:layout_height="36dp"
+            android:text="+"
+            android:textSize="18sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="点中间数字可直接输入（时间支持 0.1 秒精度，0=不限）"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp" />
+</LinearLayout>
+</ScrollView>

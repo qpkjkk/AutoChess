@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#141821</color>
+    <color name="bg_panel">#1D2330</color>
+    <color name="bg_card">#232B3B</color>
+    <color name="text_primary">#ECEFF6</color>
+    <color name="text_secondary">#9AA6BC</color>
+    <color name="accent">#4F8CFF</color>
+    <color name="accent_dim">#2A4B80</color>
+    <color name="danger">#E25B5B</color>
+    <color name="success">#4CAF7D</color>
+    <color name="square_light">#E8D3B4</color>
+    <color name="square_dark">#9A6B4F</color>
+    <color name="highlight_last">#F7DC6F</color>
+    <color name="highlight_select">#5FA8F5</color>
+    <color name="legal_dot">#20557A</color>
+    <color name="legal_ring">#20557A</color>
+    <color name="check_glow">#D64545</color>
+</resources>

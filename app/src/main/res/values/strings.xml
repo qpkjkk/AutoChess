@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutoChess 智能棋手</string>
+    <string name="accessibility_label">AutoChess 自动走棋服务</string>
+    <string name="connect">连线</string>
+    <string name="disconnect">断开</string>
+    <string name="new_game">新局</string>
+    <string name="undo">悔棋</string>
+    <string name="flip">翻转</string>
+    <string name="think">思考</string>
+    <string name="prev_move">上一步</string>
+    <string name="next_move">下一步</string>
+    <string name="relocate">重定位</string>
+    <string name="status_idle">待命</string>
+    <string name="overlay_needed">请授予悬浮窗权限</string>
+    <string name="accessibility_needed">请开启无障碍服务</string>
+    <string name="accessibility_desc">用于自动走棋时模拟点击屏幕落子，不会读取任何屏幕内容。</string>
+    <string name="viewing_history">正在查看历史（第 %1$d / %2$d 步）</string>
+</resources>

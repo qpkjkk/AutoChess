@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 悬浮窗样式二：鹏飞风横向图标条（窄高度、横贯左右；ID 与经典面板一一对应） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/floatPanel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_floating_strip"
+    android:paddingHorizontal="8dp"
+    android:paddingVertical="5dp">
+
+    <!-- 第一行：图标控制条（拖拽手柄 = 整行） -->
+    <LinearLayout
+        android:id="@+id/floatHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/statusDot"
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="6dp"
+            android:background="#666C7A" />
+
+        <!-- 连线（链环图标） -->
+        <ImageButton
+            android:id="@+id/btnFloatConnect"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/ic_link"
+            android:scaleType="centerInside"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="连线" />
+
+        <!-- 执子：自动 / 黑 / 白（方块图标单选） -->
+        <RadioGroup
+            android:id="@+id/rgSide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="4dp">
+
+            <RadioButton
+                android:id="@+id/rbSideAuto"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:button="@null"
+                android:background="@drawable/sel_sq_auto"
+                android:contentDescription="自动执子" />
+
+            <RadioButton
+                android:id="@+id/rbSideBlack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="6dp"
+                android:button="@null"
+                android:background="@drawable/sel_sq_black"
+                android:contentDescription="执黑" />
+
+            <RadioButton
+                android:id="@+id/rbSideWhite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="6dp"
+                android:button="@null"
+                android:background="@drawable/sel_sq_white"
+                android:contentDescription="执白" />
+        </RadioGroup>
+
+        <!-- 闪电：立即落子（引擎思考中 → 直接用当前最优着法落子） -->
+        <ImageButton
+            android:id="@+id/btnFloatBolt"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/ic_bolt"
+            android:scaleType="centerInside"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="立即落子" />
+
+        <!-- 思考（无限分析开关，小号文字钮） -->
+        <Button
+            android:id="@+id/btnFloatThink"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:minWidth="36dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_marginStart="4dp"
+            android:text="思"
+            android:textSize="13sp"
+            android:textColor="#ECEFF6" />
+
+        <!-- 我的库：记录模式开关（连线录谱，引擎只建议不代走） -->
+        <Button
+            android:id="@+id/btnFloatRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:minWidth="34dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_marginStart="4dp"
+            android:text="记"
+            android:textSize="13sp"
+            android:textColor="#F06292" />
+
+        <!-- 最小化：仅折叠信息行，按钮全保留 -->
+        <ImageButton
+            android:id="@+id/btnFloatMinimize"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/ic_minimize"
+            android:scaleType="centerInside"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="折叠信息" />
+
+        <!-- 关闭：停止服务撤掉悬浮窗 -->
+        <ImageButton
+            android:id="@+id/btnFloatClose"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_close"
+            android:scaleType="centerInside"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="关闭" />
+    </LinearLayout>
+
+    <!-- 第一行b：次要控制（v1.12.1 两行重排——单行总宽 480dp 超出屏宽 360~412dp，
+         右侧按钮被裁；拆行后主行高频钮全部完整可见） -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btnFloatMyTurn"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:minWidth="34dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="我"
+            android:textSize="13sp"
+            android:textColor="#7CE0B0" />
+
+        <Button
+            android:id="@+id/btnFloatOppTurn"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:minWidth="34dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_marginStart="4dp"
+            android:text="对"
+            android:textSize="13sp"
+            android:textColor="#FFB74D" />
+
+        <Button
+            android:id="@+id/btnFloatCalib"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:minWidth="36dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:layout_marginStart="4dp"
+            android:text="校准"
+            android:textSize="11sp"
+            android:textColor="#ECEFF6" />
+
+        <Button
+            android:id="@+id/btnFloatRelocate"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:minWidth="36dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:layout_marginStart="4dp"
+            android:text="定位"
+            android:textSize="11sp"
+            android:textColor="#ECEFF6" />
+    </LinearLayout>
+
+    <!-- 第二行：信息区（最小化时折叠；标题保留 id 兼容绑定） -->
+    <LinearLayout
+        android:id="@+id/floatInfoRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="3dp">
+
+        <TextView
+            android:id="@+id/tvFloatTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0"
+            android:text=" "
+            android:textSize="1sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvFloatStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="待命"
+            android:textColor="#ECEFF6"
+            android:textSize="11sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDepthReached"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="—"
+                android:textColor="#9FB0C3"
+                android:textSize="10sp"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/tvFloatEval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                android:textColor="#9FB0C3"
+                android:textSize="10sp"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvFloatPv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="340dp"
+            android:text=""
+            android:textColor="#8A9BAd"
+            android:textSize="10sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tvFloatAudit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#7ED9A0"
+                android:textSize="10sp"
+                android:maxLines="1"
+                android:ellipsize="end" />
+    </LinearLayout>
+</LinearLayout>

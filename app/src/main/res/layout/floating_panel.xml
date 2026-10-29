@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 悬浮窗：展开面板（紧凑版） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/floatPanel"
+    android:layout_width="216dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_floating"
+    android:padding="7dp">
+
+    <!-- 标题栏（拖拽手柄） -->
+    <LinearLayout
+        android:id="@+id/floatHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/statusDot"
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:background="#666C7A" />
+
+        <TextView
+            android:id="@+id/tvFloatTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="♞ 连线助手"
+            android:textColor="#ECEFF6"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnFloatMinimize"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_minimize"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="最小化" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvFloatStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="待命 · 点击「连线」开始"
+        android:textColor="#9AA6BC"
+        android:textSize="11sp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <!-- 连线 / 思考 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnFloatConnect"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1.2"
+            android:layout_marginEnd="4dp"
+            android:text="@string/connect"
+            android:textSize="12sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp" />
+
+        <Button
+            android:id="@+id/btnFloatThink"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="0.8"
+            android:text="@string/think"
+            android:textSize="12sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="执子"
+            android:textColor="#9AA6BC"
+            android:textSize="11sp" />
+
+        <RadioGroup
+            android:id="@+id/rgSide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbSideAuto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="自动"
+                android:textSize="11sp"
+                android:minWidth="0dp"
+                android:padding="2dp" />
+
+            <RadioButton
+                android:id="@+id/rbSideWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="白"
+                android:textSize="11sp"
+                android:minWidth="0dp"
+                android:padding="2dp" />
+
+            <RadioButton
+                android:id="@+id/rbSideBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="黑"
+                android:textSize="11sp"
+                android:minWidth="0dp"
+                android:padding="2dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- 实时深度（引擎参数在主界面 设置→引擎 配置） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal"
+        android:gravity="end|center_vertical">
+
+        <TextView
+            android:id="@+id/tvDepthReached"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#9AA6BC"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <!-- 引擎输出：评分 + 走法 -->
+    <TextView
+        android:id="@+id/tvFloatEval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text=""
+        android:textColor="#7EC8FF"
+        android:textSize="11sp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/tvFloatPv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxWidth="376dp"
+        android:singleLine="true"
+        android:layout_marginTop="2dp"
+        android:text=""
+        android:textColor="#C8D3E8"
+        android:textSize="11sp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/tvFloatAudit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text=""
+        android:textColor="#7ED9A0"
+        android:textSize="10sp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <!-- 手动纠偏：我方回合 / 对方回合（v1.8.0 极端情况保险丝） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnFloatMyTurn"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:text="我方回合"
+            android:textSize="11sp"
+            android:textColor="#7CE0B0"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp" />
+
+        <Button
+            android:id="@+id/btnFloatOppTurn"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:text="对方回合"
+            android:textSize="11sp"
+            android:textColor="#FFB74D"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp" />
+
+        <Button
+            android:id="@+id/btnFloatRecord"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:text="记谱"
+            android:textSize="11sp"
+            android:textColor="#F06292"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp" />
+    </LinearLayout>
+
+    <!-- 校准 / 重定位 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnFloatCalib"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:text="校准棋盘"
+            android:textSize="11sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp" />
+
+        <Button
+            android:id="@+id/btnFloatRelocate"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="0.9"
+            android:text="重定位"
+            android:textSize="11sp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="2dp" />
+    </LinearLayout>
+</LinearLayout>
